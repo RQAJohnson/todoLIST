@@ -1,5 +1,6 @@
 package com.qa.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.qa.persistance.domain.SchoolDomain;
@@ -17,6 +18,8 @@ public class SchoolService {
 	private SchoolRepo repo;
 	private ModelMapper mapper;
 	
+	
+	@Autowired
 	public SchoolService(SchoolRepo repo, ModelMapper mapper) {
 		super();
 		this.repo = repo;
