@@ -28,7 +28,7 @@ public class TeacherDomain {
 		// TODO Auto-generated constructor stub
 	}
 
-	public TeacherDomain(Long id, @NotNull String name, @NotNull String subject, SchoolDomain mySchool) {
+	public TeacherDomain(Long id, String name, String subject, SchoolDomain mySchool) {
 		super();
 		this.id = id;
 		this.name = name;

@@ -2,6 +2,7 @@ package com.qa.persistance.domain;
 
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,7 +12,7 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-
+@Entity
 public class SchoolDomain {
 	
 	@Id
@@ -20,7 +21,7 @@ public class SchoolDomain {
 	
 	private String address;
 	
-	@OneToMany(mappedBy = "myHouse", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "mySchool", fetch = FetchType.EAGER)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private List<TeacherDomain> teacherList;
 	
@@ -65,7 +66,7 @@ public class SchoolDomain {
 
 
 	public void setTeacherList(List<TeacherDomain> teacherList) {
-		teacherList = teacherList;
+		this.teacherList = teacherList;
 	}
 
 }
