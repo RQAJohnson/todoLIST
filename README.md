@@ -77,7 +77,7 @@ For further reference, please consider the following sections:
 
 
 ## Authors
-* **Rianna Johnson** - *Initial work* - [Rianna Johnson](https://github.com/christophperrins)
+* **Rianna Johnson** - *Initial work* - [Rianna Johnson](https://github.com/RQAJohnson/todoLIST.git)
 ## License
 This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md) file for details 
 *For help in [Choosing a license](https://choosealicense.com/)*
