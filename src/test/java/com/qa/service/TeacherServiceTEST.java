@@ -1,5 +1,7 @@
 package com.qa.service;
 
+import java.util.Optional;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -38,10 +40,13 @@ public class TeacherServiceTEST {
 		Assertions.assertThat(result).usingRecursiveComparison()
 		.isEqualTo(this.mockMapper.map(TEST_T, TeacherDTO.class));
 		
+		Mockito.verify(this.mockRepo, Mockito.times(1)).save(Mockito.any(TeacherDomain.class));
+		
 	}
 		
 	@Test //ReadALL
 	public void readAll() {
+		
 	
 	}
 		
@@ -50,16 +55,15 @@ public class TeacherServiceTEST {
 		TeacherDomain TEST_T = new TeacherDomain(1L, "Kate", "Maths", null);
 		TeacherDTO TEST_DTO = this.mockMapper.map(TEST_T, TeacherDTO.class);
 		
-		Mockito.when(this.service.readOne(TEST_T.getId() )).thenReturn(TEST_DTO); //RULES
+		Mockito.when(this.mockRepo.findById(TEST_T.getId())).thenReturn(Optional.of(TEST_T)); //RULES
 		
 		TeacherDTO result = this.service.readOne(1L); //ACTIONS
 		
-		Assertions.assertThat(result).isEqualTo
-		(this.mockMapper.map(TEST_T, TeacherDTO.class)); //ASSERTIONS. Either assertions work!
+		Assertions.assertThat(result).isEqualTo(TEST_DTO); //ASSERTIONS. Either assertions work!
 		
-		Assertions.assertThat(result).usingRecursiveComparison()
-		.isEqualTo(this.mockMapper.map(TEST_T, TeacherDTO.class));
+		Mockito.verify(this.mockRepo, Mockito.times(1)).findById(1L);
 		
+ 
 		
 	}
 		
