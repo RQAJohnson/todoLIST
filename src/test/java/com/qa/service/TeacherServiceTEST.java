@@ -30,17 +30,23 @@ public class TeacherServiceTEST {
 	@Test //Create
 	public void create() {
 		TeacherDomain TEST_T = new TeacherDomain(1L, "Kate", "Maths", null);
-		Mockito.when(this.mockRepo.save(Mockito.any(TeacherDomain.class))).thenReturn(TEST_T); //RULES
+		TeacherDTO TEST_DTO = new TeacherDTO(1L, "Kate", "Maths");
 		
+		Mockito.when(this.mockRepo.save(Mockito.any(TeacherDomain.class))).thenReturn(TEST_T); //RULES
+		Mockito.when(this.mockMapper.map(TEST_T, TeacherDTO.class)).thenReturn(TEST_DTO); //RULES
+
 		TeacherDTO result = this.service.create(TEST_T); //ACTIONS
 		
-		Assertions.assertThat(result).isEqualTo
-		(this.mockMapper.map(TEST_T, TeacherDTO.class)); //ASSERTIONS. Either assertions work!
+		//ASSERTIONS. Either assertions work!
+		Assertions.assertThat(result).isNotNull();
 		
-		Assertions.assertThat(result).usingRecursiveComparison()
-		.isEqualTo(this.mockMapper.map(TEST_T, TeacherDTO.class));
+		Assertions.assertThat(result).isEqualTo(TEST_DTO); 
+		Assertions.assertThat(result).usingRecursiveComparison().isEqualTo(TEST_DTO);
+		// this.mockMapper.map(TEST_T, TeacherDTO.class) 
 		
 		Mockito.verify(this.mockRepo, Mockito.times(1)).save(Mockito.any(TeacherDomain.class));
+		Mockito.verify(this.mockMapper, Mockito.times(1)).map(TEST_T, TeacherDTO.class);
+
 		
 	}
 		
