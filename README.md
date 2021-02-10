@@ -1,11 +1,12 @@
 # Getting Started
 Coverage: 34%
-# To Do List Web Application
-One Paragraph of project description goes here
+# Project Title: To Do List Web Application
+**Project Description:** A To Do List Web Application, which allows a user to input data to create, read, edit and delete an entry.
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine 
 for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+See Admin folder for ERD and UML diagrams.
 
 ### Prerequisites
 What things you need to install the software and how to install them
