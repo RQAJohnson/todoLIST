@@ -26,6 +26,8 @@ public class TeacherServiceTEST {
 	@Autowired
 	private TeacherService service;
 	
+	//Create a mocked list for the readAll
+	
 
 	@Test //Create
 	public void create() {
@@ -52,6 +54,11 @@ public class TeacherServiceTEST {
 		
 	@Test //ReadALL
 	public void readAll() {
+		TeacherDomain TEST_T = new TeacherDomain(1L, "Kate", "Maths", null);
+		TeacherDTO TEST_DTO = this.mockMapper.map(TEST_T, TeacherDTO.class);
+		
+		
+		
 		
 	
 	}
@@ -81,8 +88,16 @@ public class TeacherServiceTEST {
 	
 	@Test //Delete
 	public void delete() {	
+		TeacherDomain TEST_T = new TeacherDomain(1L, "Kate", "Maths", null);
+		TeacherDTO TEST_DTO = this.mockMapper.map(TEST_T, TeacherDTO.class);
+		
+		Mockito.when(this.mockRepo.findById(TEST_T.getId())).thenReturn(Optional.of(TEST_T));
+		
+		boolean result = this.service.delete(1L);
+		Assertions.assertThat(result).isEqualTo(TEST_DTO);
+		Mockito.verify(this.mockRepo, Mockito.times(1)).findById(1L);
 	}
-	
+	// cAN'T RETURN ANYTHING 
 	
 	}
 	
