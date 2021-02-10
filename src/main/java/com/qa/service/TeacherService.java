@@ -58,7 +58,7 @@ public class TeacherService {
 	
 //	DELETE
 	public boolean delete(Long id) {
-		this.repo.deleteById(id);
+		this.repo.deleteById(id); 
 		return !this.repo.existsById(id);
 		
 	}

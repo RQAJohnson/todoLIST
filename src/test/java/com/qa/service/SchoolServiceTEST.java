@@ -11,8 +11,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.qa.persistance.domain.SchoolDomain;
+import com.qa.persistance.domain.TeacherDomain;
 import com.qa.persistance.dto.SchoolDTO;
-
+import com.qa.persistance.dto.TeacherDTO;
 import com.qa.persistance.repo.SchoolRepo;
 
 
@@ -82,6 +83,11 @@ public class SchoolServiceTEST {
 	
 	@Test //Delete
 	public void delete() {	
+		SchoolDomain TEST_S = new SchoolDomain(1L, "25 London Road", null);
+		
+		this.mockRepo.deleteById(1L);
+		Mockito.when(this.mockRepo.existsById(1L)).thenReturn(false);	
+		Mockito.verify(this.mockRepo, Mockito.times(1)).deleteById(1L);
 	}
 
 }

@@ -38,7 +38,7 @@ public class TeacherServiceTEST {
 		Mockito.when(this.mockMapper.map(TEST_T, TeacherDTO.class)).thenReturn(TEST_DTO); //RULES
 
 		TeacherDTO result = this.service.create(TEST_T); //ACTIONS
-		
+	
 		//ASSERTIONS. Either assertions work!
 		Assertions.assertThat(result).isNotNull();
 		
@@ -54,10 +54,9 @@ public class TeacherServiceTEST {
 		
 	@Test //ReadALL
 	public void readAll() {
-		TeacherDomain TEST_T = new TeacherDomain(1L, "Kate", "Maths", null);
-		TeacherDTO TEST_DTO = this.mockMapper.map(TEST_T, TeacherDTO.class);
-		
-		
+//		TeacherDomain TEST_T = new TeacherDomain(1L, "Kate", "Maths", null);
+//		TeacherDTO TEST_DTO = this.mockMapper.map(TEST_T, TeacherDTO.class);
+//		Mockito.when(this.mockRepo.findAll().thenReturn(Optional.of(TEST_T));
 		
 		
 	
@@ -89,15 +88,48 @@ public class TeacherServiceTEST {
 	@Test //Delete
 	public void delete() {	
 		TeacherDomain TEST_T = new TeacherDomain(1L, "Kate", "Maths", null);
-		TeacherDTO TEST_DTO = this.mockMapper.map(TEST_T, TeacherDTO.class);
 		
-		Mockito.when(this.mockRepo.findById(TEST_T.getId())).thenReturn(Optional.of(TEST_T));
+		this.mockRepo.deleteById(1L);
+		Mockito.when(this.mockRepo.existsById(1L)).thenReturn(false);	
 		
-		boolean result = this.service.delete(1L);
-		Assertions.assertThat(result).isEqualTo(TEST_DTO);
-		Mockito.verify(this.mockRepo, Mockito.times(1)).findById(1L);
+//		boolean result = this.service.delete(1L);
+		
+//		Assertions.assertThat(result).isEqualTo(true);
+
+		Mockito.verify(this.mockRepo, Mockito.times(1)).deleteById(1L);
+		
+//		TeacherDTO TEST_DTO = this.mockMapper.map(TEST_T, TeacherDTO.class); //WILL return null
+//		Mockito.verify(this.mockRepo, Mockito.times(1)).existsById(1L);
+
+		// CAN'T RETURN ANYTHING --- DELETE BY ID
+		
+		
+		
+//		this.mockRepo.deleteById(1L);
+//	    Mockito.verify(this.mockRepo, Mockito.times(1))
+//	            .deleteById(1L);
+		
+		
+		
 	}
-	// cAN'T RETURN ANYTHING 
+	
+	
+//	TEST_T.getId())).thenReturn(Optional.of(TEST_T)
+	
+	public void mockitoRules() {
+		
+		//RESOURCES
+		
+		
+		//RULES
+
+		
+		//ACTIONS
+		
+		
+		//ASSERTIONS
+	}
+	
 	
 	}
 	
