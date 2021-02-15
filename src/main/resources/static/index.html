@@ -3,26 +3,38 @@
   <head>
     <title>Todo App</title>
     <!-- <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'> -->
-    <link rel="stylesheet" href="index.css" type="text/css" media="screen" charset="utf-8">    
+    <link rel="stylesheet" href="./index.css" type="text/css" media="screen" charset="utf-8">    
   </head> 
   <body>
     <div class="container">
       <p>
-        <label for="new-task">Add Item</label><input id="new-task" type="text">
-         <button type="button" id="createButton">Add</button><button class="edit">Edit</button><button class="delete">Delete</button>
+        <label for="new-task">Add Item</label>
+        <input id="new-task" type="text" />
+         <button 
+         	type="button"
+         	id="createButton"
+         	onclick="addTask()"
+         >
+         	Add
+         </button>
+         <button class="edit" onclick="editTask()">Edit</button>
+         <button class="delete" onclick="deleteTask()">Delete</button>
          <pre id="createOutput"></pre>
       </p>
       </div>
       <div class="container">
       <p>
-        <label for="new-task">Read Item</label><input id="new-task" type="text">
-         <button type="button" id="readButton">Read</button><button class="edit">Edit</button><button class="delete">Delete</button>
-         <pre id="readOutput"></pre>
+        <label for="new-task">Read Item</label>
+        <input id="new-task" type="text">
+        <button type="button" id="readButton">Read</button>
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
+        <pre id="readOutput"></pre>
       </p>
       </div>
      
 
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="./index.js"></script>
 
   </body>
 </html>

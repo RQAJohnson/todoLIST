@@ -9,4 +9,5 @@ VALUES
 INSERT INTO TEACHER_DOMAIN(NAME, SUBJECT, MY_SCHOOL_ID)
 VALUES
 ('sarah','maths',2),
-('harry','biology',1);
+('harry','biology',1),
+('kate', 'P.E', 3);
