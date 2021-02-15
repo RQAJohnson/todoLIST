@@ -22,6 +22,7 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.persistance.domain.TeacherDomain;
 import com.qa.persistance.dto.TeacherDTO;
@@ -81,13 +82,35 @@ public class TeacherControllerTEST {
 //	READ
 	@Test
 	public void readAll() throws Exception {
-//		TeacherDomain contentBody = new TeacherDomain(3L,"Barry","Science", null);
-//		TeacherDTO expectedResult = mapToDTO(contentBody);
-//		
-//		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
+		
+//		List<TeacherDTO> teachers = new ArrayList<>();
+//		MockHttpServletRequestBuilder mockRequestT = MockMvcRequestBuilders
 //				.request(HttpMethod.GET, "/teacher/readAll/"); //set up request
-//		
-//		
+//		//isOk. If integer .204 OR HttpStatus.ACCEPTED **set up expected status**
+//		ResultMatcher matchStatusT = MockMvcResultMatchers.status().isOk();  		
+//		ResultMatcher matchContentT = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(teachers));
+//		//PERFORM
+//		this.mock.perform(mockRequestT).andExpect(matchStatusT);
+//		this.mock.perform(mockRequestT).andExpect(matchContentT);	
+	}
+	
+		
+//	TeacherDomain contentBody = new TeacherDomain(3L,"Barry","Science", null);
+//	TeacherDTO expectedResult = mapToDTO(contentBody);
+//	
+//	MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
+//			.request(HttpMethod.GET, "/teacher/readAll/") //set up request
+//			.contentType(MediaType.APPLICATION_JSON)
+//			.content(jsonifier.writeValueAsString(contentBody))
+//			.accept(MediaType.APPLICATION_JSON);
+//	
+//	//isOk. If integer .204 OR HttpStatus.ACCEPTED **set up expected status**
+//	ResultMatcher matchStatus = MockMvcResultMatchers.status().isOk();  		
+//	ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(contentBody));
+//	
+//	//PERFORM
+//	this.mock.perform(mockRequest).andExpect(matchStatus);
+//	this.mock.perform(mockRequest).andExpect(matchContent);
 //		TeacherController teacherContoller = new TeacherController(TeacherService);
 //		List<TeacherDTO> teachers = new ArrayList<>();
 //		teachers.add(new TeacherDTO(3L,"Chris", "P.E"));
@@ -97,25 +120,8 @@ public class TeacherControllerTEST {
 //		
 //		customers.add(new Customer("Rhys", "T"));
 //		customers.add(new Customer("Nic", "J"));
-		
-		
-//		
-//		//set up request
-//		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
-//				.request(HttpMethod.GET, "/teacher/readAll/")
-//				.contentType(MediaType.APPLICATION_JSON)
-//				.content(jsonifier.writeValueAsString(contentBody))
-//				.accept(MediaType.APPLICATION_JSON);
-//		
-//		//isOk. If integer .204 OR HttpStatus.ACCEPTED **set up expected status**
-//		ResultMatcher matchStatus = MockMvcResultMatchers.status().isOk();  		
-//		ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(expectedResult));
-//		
-//		//PERFORM
-//		this.mock.perform(mockRequest).andExpect(matchStatus);
-//		this.mock.perform(mockRequest).andExpect(matchContent);
 
-	}
+
 	
 //	READ BY ID
 	@Test
@@ -133,8 +139,8 @@ public class TeacherControllerTEST {
 		this.mock.perform(mockRequest).andExpect(matchStatus);
 		this.mock.perform(mockRequest).andExpect(matchContent);
 		
-		
 	}
+	
 	
 //	UPDATE	
 	@Test
@@ -143,17 +149,19 @@ public class TeacherControllerTEST {
 	}
 	
 //	DELETE
-	
-	
 	@Test
 	public void delete() throws Exception {
-//		Long id = 1L;
-//		Mockito.doReturn(id).when(TeacherService).delete(id);
-//		TeacherService.delete(id);
-//		Mockito.verify(TeacherService, Mockito.times(1)).delete(1L);
-		
+		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
+				.request(HttpMethod.DELETE, "/teacher/delete/" + ID);
+		ResultMatcher matchStatus = MockMvcResultMatchers.status().isNoContent();
+		this.mock.perform(mockRequest).andExpect(matchStatus);
 			
 	}
+	//MAYBE THIS!
+//	Long id = 1L;
+//	Mockito.doReturn(id).when(TeacherService).delete(id);
+//	TeacherService.delete(id);
+//	Mockito.verify(TeacherService, Mockito.times(1)).delete(1L);
 	
 
 }

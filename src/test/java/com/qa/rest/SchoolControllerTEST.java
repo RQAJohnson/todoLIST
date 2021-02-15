@@ -47,7 +47,6 @@ public class SchoolControllerTEST {
 	@Test
 	public void create() throws Exception {
 		
-		// List<TeacherDomain> teacherList
 		SchoolDomain contentBody = new SchoolDomain(1L, "25 Langley Lane", null);
 		SchoolDTO expectedResult = mapToDTO(contentBody);
 		 
@@ -72,6 +71,7 @@ public class SchoolControllerTEST {
 //	READ
 	@Test
 	public void readAll() throws Exception {
+		// List<TeacherDomain> teacherList
 //		TeacherDomain contentBody = new TeacherDomain(3L,"Barry","Science", null);
 //		TeacherDTO expectedResult = mapToDTO(contentBody);
 //		
@@ -118,6 +118,13 @@ public class SchoolControllerTEST {
 //	DELETE
 	@Test
 	public void delete() throws Exception {
+		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
+				.request(HttpMethod.DELETE, "/school/delete/" + ID);
+		
+		ResultMatcher matchStatus = MockMvcResultMatchers.status().isNoContent();
+		
+		
+		this.mock.perform(mockRequest).andExpect(matchStatus);
 		
 			
 	}
