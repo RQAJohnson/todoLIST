@@ -13,17 +13,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.qa.persistance.domain.TeacherDomain;
-import com.qa.persistance.dto.TeacherDTO;
-import com.qa.service.TeacherService;
+import com.qa.persistance.domain.SchoolDomain;
+import com.qa.persistance.dto.SchoolDTO;
+import com.qa.service.SchoolService;
 
 @RestController
-@RequestMapping("/teacher")
-public class TeacherController {
+@RequestMapping("/school")
+public class SchoolController {
 	
-	private TeacherService service;
+	private SchoolService service;
 
-	public TeacherController(TeacherService service) {
+	public SchoolController(SchoolService service) {
 		super();
 		this.service = service;
 	}
@@ -31,27 +31,27 @@ public class TeacherController {
 	
 //	POST or CREATE
 	@PostMapping("/create")
-	public ResponseEntity<TeacherDTO> create(@RequestBody TeacherDomain teacher) {
-		return new ResponseEntity<TeacherDTO>(this.service.create(teacher), HttpStatus.CREATED);
+	public ResponseEntity<SchoolDTO> create(@RequestBody SchoolDomain school) {
+		return new ResponseEntity<SchoolDTO>(this.service.create(school), HttpStatus.CREATED);
 		}
 	
 	
 //	READ
 	@GetMapping("/readAll")
-	public ResponseEntity<List<TeacherDTO>> readAll() {
+	public ResponseEntity<List<SchoolDTO>> readAll() {
 		return ResponseEntity.ok(this.service.readAll());
 	}
 	
 //	READ BY ID
 	@GetMapping("/read/{id}")
-	public ResponseEntity<TeacherDTO> readTeacher(@PathVariable("id") Long id) {
+	public ResponseEntity<SchoolDTO> readOne(@PathVariable("id") Long id) {
 		return ResponseEntity.ok(this.service.readOne(id));
 	}
 	
 //	UPDATE	
 	@PutMapping("update/{id}")
-	public ResponseEntity<TeacherDTO> update(@PathVariable("id") Long id, @RequestBody TeacherDomain teacher){
-		return new ResponseEntity<TeacherDTO>(this.service.update(id, teacher), HttpStatus.ACCEPTED);
+	public ResponseEntity<SchoolDTO> update(@PathVariable("id") Long id, @RequestBody SchoolDomain school){
+		return new ResponseEntity<SchoolDTO>(this.service.update(id, school), HttpStatus.ACCEPTED);
 	}
 	
 //	DELETE
@@ -62,5 +62,6 @@ public class TeacherController {
 				new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 			
 	}
+	
 
 }
