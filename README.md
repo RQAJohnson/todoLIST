@@ -69,6 +69,11 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 * [Maven](https://maven.apache.org/) - Dependency Management
+* [Selenium](https://www.selenium.dev/selenium-ide/) - Automated Testing
+* [Java](https://www.oracle.com/uk/java/technologies/javase-downloads.html) - OOP Language
+* [Spring Tool Suite](https://spring.io/tools#suite-three)
+* [Sonarqube](https://www.sonarqube.org/downloads/) - Static Analysis
+
 
 ## Versioning
 We use [SemVer](http://semver.org/) for versioning.
