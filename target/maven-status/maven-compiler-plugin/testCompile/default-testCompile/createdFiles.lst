@@ -1,0 +1,12 @@
+com\qa\persistance\domain\SchoolDomainTEST.class
+com\qa\persistance\dto\TeacherDTOTEST.class
+com\qa\service\TeacherServiceTEST.class
+com\qa\persistance\repo\TeacherRepoTEST.class
+com\qa\rest\TeacherControllerTEST.class
+com\qa\TodoListApplicationTests.class
+com\qa\persistance\domain\TeacherDomainTEST.class
+com\qa\persistance\dto\SchoolDTOTEST.class
+com\qa\persistance\repo\SchoolRepoTEST.class
+com\qa\rest\SchoolControllerTEST.class
+com\qa\config\AppConfigTEST.class
+com\qa\service\SchoolServiceTEST.class

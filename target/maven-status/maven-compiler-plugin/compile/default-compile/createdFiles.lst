@@ -1,0 +1,12 @@
+com\qa\persistance\dto\TeacherDTO.class
+com\qa\persistance\repo\SchoolRepo.class
+com\qa\persistance\domain\SchoolDomain.class
+com\qa\service\SchoolService.class
+com\qa\persistance\dto\SchoolDTO.class
+com\qa\rest\SchoolController.class
+com\qa\persistance\repo\TeacherRepo.class
+com\qa\persistance\domain\TeacherDomain.class
+com\qa\TodoListApplication.class
+com\qa\config\AppConfig.class
+com\qa\rest\TeacherController.class
+com\qa\service\TeacherService.class
