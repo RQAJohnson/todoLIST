@@ -19,19 +19,23 @@ Selenium,
 Maven.
 
 ### Installing
-A step by step series of examples that tell you how to get a development env running
+Java: https://www.oracle.com/uk/java/technologies/javase-downloads.html
 
-Spring Tool Suite: https://spring.io/tools#suite-three
+Spring Tool Suite: https://spring.io/tools#suite-three (An extension can be added to eclipse. This can be done by
+clicking 'Help', 'Eclipse Marketplace...', searching for 'Spring Tool' and then installing).
 
-Sonarqube: https://www.sonarqube.org/downloads/ (to close out of Sonarqube ctrl + c)
+Sonarqube: https://www.sonarqube.org/downloads/ (to close out of Sonarqube ctrl + c).
 
 Selenium: https://www.selenium.dev/selenium-ide/ (A small icon should appear in the top right corner of your 
 browser window. After clicking on the icon a pop up should appear where you can begin recording your web page,
-after providing the necessary details 'title' of project and 'URL' to test.
+after providing the necessary details 'title' of project and 'URL' to test).
 
-Maven: https://maven.apache.org/download.cgi
+Maven: https://maven.apache.org/download.cgi (For further information, please below within 'Reference Documentation'
+and/or visit https://maven.apache.org/run.html which provide visual aides. On the left hand side of the site under 'About Maven'
+you will see tabs on the various plugins and features available).
 
-Postman: https://www.postman.com/downloads/
+Postman: https://www.postman.com/downloads/ (Underneath 'Start Something new' you should be able to 'Create a request', and begin 
+testing your application by having Spring running or having an end-point to test).
 
 ### Guides
 The following guides illustrate how to use some features concretely:
